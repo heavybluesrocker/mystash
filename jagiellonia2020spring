@@ -1,0 +1,162 @@
+class Player {
+  constructor(name, age, nation, position) {
+    this._name = name;
+    this._age = age;
+    this._nation = nation;
+    this._position = position;
+    this._value = 0;
+    this._condition = 90;
+      }
+  get name() {
+    return this._name;
+  }
+  get age() {
+    return this._age;
+  }
+  get nation() {
+    return this._nation;
+  }
+  get position() {
+    return this._position;
+  }
+  get value() {
+    return this._value;
+  }
+  get condition() {
+    return this._condition;
+  }
+  makeOlder() {
+    this._age++;
+  }
+  incValue(price) {
+    this._value = this._value + price;
+  }
+  decValue(price) {
+    this._valuie = this._value - price;
+  }
+  incCondition() {
+    this._condition++;
+  }
+  decCondition() {
+    this._condition--;
+  }
+  makeInjured() {
+    this._condition = 0;
+  }
+  makeHealthy() {
+    this._condition = 90;
+  }
+}
+class Goalkeeper extends Player {
+  constructor(name, age, nation, position, goalkeeping) {
+    super(name, age, nation);
+    this._position = 'Goalkeeper';
+    this._goalkeeping = goalkeeping;
+  }
+  get goalkeeping() {
+    return this._goalkeeping;
+  }
+  incGK() {
+    this._goalkeeping++;
+  }
+  decGK() {
+    this._goalkeeping--;
+  }
+  }
+class Defender extends Player {
+  constructor(name, age, nation, defending) {
+    super(name, age, nation);
+    this._position = 'Defender';
+    this._defending = defending;
+  }
+  get defending() {
+    return this._defending;
+  }
+  incDef() {
+    this._defending++;
+  }
+  decDef() {
+    this._defending--;
+  }
+}
+class Midfielder extends Player {
+  constructor(name, age, nation, defending, attacking) {
+    super(name, age, nation);
+    this._position = "Midfielder";
+    this._defending = defending;
+    this._attacking = attacking;
+  }
+  get defending() {
+    return this._defending;
+  }
+  get attacking() {
+    return this._attacking;
+  }
+  incDef() {
+    this._defending++;
+  }
+  decDef() {
+    this._defending--;
+  }
+  incAtt() {
+    this._attacking++;
+  }
+  decAtt() {
+    this._attacking--;
+  }
+}
+class Striker extends Player {
+  constructor(name, age, nation, attacking) {
+    super(name, age, nation);
+    this._position = "Striker";
+    this._attacking = attacking;
+  }
+  get attacking() {
+    return this._attacking;
+  }
+  incAtt() {
+    this._attacking++;
+  }
+  decAtt() {
+    this._attacking--;
+  }
+}
+const Gostomski = new Goalkeeper('Gostomski', 22, 'POL', 9);
+const Iliev = new Goalkeeper('Iliev', 25, 'MKD', 12);
+const Węglarz = new Goalkeeper('Węglarz', 24, 'POL', 11); 
+const Tiru = new Defender('Tiru', 26, 'ROU', 14);
+const Arsenić = new Defender('Arsenić', 26, 'CRO', 13);
+const Błyszko = new Defender('Błyszko', 21, 'POL', 10);
+const Bodvarsson = new Defender('Bodvarsson', 25, 'ISL', 12);
+const Kadlec = new Defender('Kadlec', 24, 'SVK', 12);
+const Kwiecień = new Defender('Kwiecień', 26, 'POL', 11);
+const Runje = new Defender('Runje', 30, 'CRO', 14);
+const Wdowik = new Defender('Wdowik', 20, 'POL', 10);
+const Wójcicki = new Defender('Wójcicki', 32, 'POL', 12);
+const Borysiuk = new Midfielder('Borysiuk', 29, 'POL', 14, 12);
+const Camara = new Midfielder('Camara', 26, 'ESP', 10, 14);
+const Horin = new Midfielder('Horin', 20, 'UKR', 12, 10);
+const Kostal = new Midfielder('Kostal', 24, 'SVK', 11, 11);
+const Makuszewski = new Midfielder('Makuszewski', 31, 'POL', 11, 13);
+const Mystkowski = new Midfielder('Mystkowski', 22, 'POL', 10, 12);
+const Nawrocki = new Midfielder('Nawrocki', 19, 'POL', 10, 10);
+const Pospisil = new Midfielder('Pospisil', 31, 'CZE', 12, 13);
+const Romanczuk = new Midfielder('Romanczuk', 31, 'CZE', 14, 14);
+const Struski = new Midfielder('Struski', 21, 'POL', 10, 11);
+const Szymonowicz = new Midfielder('Szymonowicz', 25, 'POL', 13, 10);
+const Bida = new Striker('Bida', 21, 'POL', 13);
+const Imaz = new Striker('Imaz', 30, 'ESP', 15);
+const Mudrinski = new Striker('Mudrinski', 29, 'SRB', 12);
+const Prikryl = new Striker('Prikryl', 28, 'CZE', 13);
+const Puljić = new Striker('Puljić', 27, 'CRO', 13);
+const Stawiarz = new Striker('Stawiarz', 18, 'POL', 10);
+const Toporkiewicz = new Striker('Toporkiewicz', 18, 'POL', 10);
+console.log('Przed treningiem:');
+console.log(Borysiuk);
+Borysiuk.incAtt(); // trenuj ofensywę Ariel!
+Borysiuk.incAtt(); // jeszcze mocniej!
+Borysiuk.decDef(); // niestety zaniedbałeś obronę
+Borysiuk.incValue(500000); // opłaciło się, cena wzrosła
+Borysiuk.makeInjured(); // niestety się połamał
+console.log('Po treningu:');
+console.log(Borysiuk);
